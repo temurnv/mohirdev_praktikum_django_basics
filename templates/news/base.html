@@ -35,6 +35,10 @@
               <li><a href="{% url 'home_page' %}">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="{% url 'contact_page' %}">Contact</a></li>
+              {% if user.is_authenticated and user.is_superuser %}
+                  <li><a href="{% url 'admin_page' %}">Admin page</a></li>
+              {% endif %}
+
             </ul>
           </div>
           <div class="header_top_right">
@@ -69,7 +73,12 @@
           <li><a href="{% url 'sport_news_page' %}">Sport</a></li>
           <li><a href="{% url 'technology_news_page' %}">Texnologiya</a></li>
           <li><a href="{% url 'contact_page' %}">Contact Us</a></li>
-          <li><a href="pages/404.html">404 Page</a></li>
+<!--          <li><a href="pages/404.html">404 Page</a></li>-->
+          <li>
+                <form method="get" action="{% url 'search_result' %}">
+                    <input type="search" name="q" placeholder="Qidiruv..." class="form-control">
+                </form>
+              </li>
         </ul>
       </div>
     </nav>

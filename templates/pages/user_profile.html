@@ -7,13 +7,16 @@
 {% block content %}
 
   <h3>Xush kelibsiz, {{ user.username }}</h3>
+  <h3><a href="{% url 'logout' %}" class="text-danger">Log out</a></h3>
   <h2>Siz haqingizda:</h2>
-  <label>Username:</label> <input value="{{ user.username }}" readonly placeholder="kiritilmagan"><br>
+<img src="{{ profile.photo.url }}" width="50%">
+  <br><label>Username:</label> <input value="{{ user.username }}" readonly placeholder="kiritilmagan"><br>
   <label>Email:</label> <input value="{{ user.email }}" readonly placeholder="kiritilmagan"><br>
   <label>Surname:</label> <input value="{{ user.last_name }}" readonly placeholder="kiritilmagan"><br>
   <label>Name:</label> <input value="{{ user.first_name }}" readonly placeholder="kiritilmagan">
 
 
-  <h4><a href="{% url 'password_change' %}" style="color:red;">Parolni almashtirish</a></h4>
+  <h4><a href="{% url 'password_change' %}" style="color:red;">Parolni almashtirish</a></h4>|
+  <h4><a href="{% url 'edit_user_information' %}" style="color:red">Profilni o'zgartirish</a></h4>
 
 {% endblock content %}
