@@ -171,7 +171,7 @@ class SportNewsView(ListView):
 
 class NewsUpdateView(OnlyLoggedSuperUser, UpdateView):
     model = News
-    fields = ('title', 'body', 'image', 'category', 'status',)
+    fields = ('title', 'title_uz', 'title_en', 'title_ru', 'body', 'body_uz', 'body_en', 'body_ru', 'image', 'category', 'status',)
     template_name = 'crud/news_edit.html'
 
 class NewsDeleteView(OnlyLoggedSuperUser, DeleteView):
